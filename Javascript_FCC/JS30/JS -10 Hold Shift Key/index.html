@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hold Shift to Check Multiple Checkboxes</title>
+    <link rel="icon" href="https://fav.farm/🔥" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <!-- inbox -->
+        <div class="inbox">
+            <!-- item  -->
+            <div class="item">
+                <input type="checkbox">
+                <p>This is an inbox layout</p>
+            </div>
+            <div class="item">
+                <input type="checkbox">
+                <p>Check one item</p>
+              </div>
+              <div class="item">
+                <input type="checkbox">
+                <p>Hold down your Shift key</p>
+              </div>
+              <div class="item">
+                <input type="checkbox">
+                <p>Check a lower item</p>
+              </div>
+              <div class="item">
+                <input type="checkbox">
+                <p>Everything in between should also be set to checked</p>
+              </div>
+              <div class="item">
+                <input type="checkbox">
+                <p>Try it!</p>
+              </div>
+              <div class="item">
+                <input type="checkbox">
+                <p>Just regular JavaScript</p>
+              </div>
+              <div class="item">
+                <input type="checkbox">
+                <p>Good Luck!</p>
+              </div>
+              <div class="item">
+                <input type="checkbox">
+                <p>The End</p>
+              </div>
+        </div>
+
+
+<script>
+        // Getting all the Queries (Checkbox)
+        const items = document.querySelectorAll('.inbox input[type=checkbox]');
+
+        let lastChecked = false; // Last checked item reference varaiable
+
+        function handlefunc(e)
+        { // Function starts
+            let inBetween = false; // InBetween variable
+
+            // Check if Shifkey is down  box is checked
+
+            // Main If statement 
+            if(e.shiftKey  && this.checked)
+            {
+                // Looping 
+                items.forEach(item =>
+                {
+                    // Either checkbox is Current or the Last One 
+                    if(item === this || item === lastChecked)
+                    {   
+                        inBetween = !inBetween; // Only those inbetween checkedBoxes will become True
+                    }
+               
+                    // Those checkboxes implementation
+                   if(inBetween)
+                    {
+                        // Execution of that Boxes - CHECKED
+                        item.checked = true;
+                    }
+
+                }); // Looping Ends
+
+            } // Main If statement Ends
+            
+            lastChecked = this;  // Last Checked variable reference becomes the current one
+        
+        } // Function Ends
+
+        items.forEach(item => {
+            item.addEventListener('click' , handlefunc);
+
+        });
+    
+</script>
+</body>
+</html>
