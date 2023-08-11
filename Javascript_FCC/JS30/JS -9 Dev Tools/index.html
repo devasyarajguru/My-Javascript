@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="myfunc()">Click Me</button>
+
+    <script>
+        const btn = document.querySelector('button');
+
+        const heroes = [
+            {name: 'Batman' , quote:'I am Batman'},
+            {name: 'SpiderMan', quote:'Great Powers'}
+        ]
+        function myfunc() {
+            console.log("Heyy");
+        }
+
+        // Dev Tools Trick 
+
+        // warning
+        console.warn("OHH NOO!!!");
+
+        // erro
+        console.error("404 NOT FOUND");
+
+        //info 
+        console.info("I am Batman!");
+
+        // Testing
+        console.assert(1 === 1, "That is Wrong!");
+
+        // clearing
+        console.clear()
+
+        // viewing DOM Elements
+        console.log(btn);
+        console.dir(btn);
+
+        console.clear()
+        // Grouping
+        console.log(heroes);
+
+        heroes.forEach(hero =>
+        {
+            console.groupCollapsed(`${hero.name}`);
+            console.log("I am", `${hero.name}` , "Fan");
+            console.log("This is", `${hero.quote}` , "Quote");
+            console.groupEnd(`${hero.name}`);
+
+        })
+        console.clear()
+
+        // Count
+
+        console.count("Bruce Wayne");
+        console.count("Peter Parker");
+        console.count("Bruce Wayne");
+        console.count("Bruce Wayne");
+        console.count("Peter Parker");
+        console.count("Peter Parker");
+        console.count("Bruce Wayne");
+        console.count("Peter Parker");
+        console.count("Bruce Wayne");
+        console.count("Bruce Wayne");
+        console.count("Peter Parker");
+        console.count("Peter Parker");
+
+        // Timing
+        console.time("Fetching data");
+        fetch('https://api.github.com/users/wesbos')
+        .then(data => data.json())
+        .then(data =>
+        {
+            console.timeEnd("Fetching data");
+            console.log(data);
+        })
+
+    </script>
+</body>
+</html>
