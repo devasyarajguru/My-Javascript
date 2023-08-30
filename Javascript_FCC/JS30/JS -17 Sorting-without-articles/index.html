@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Without Articles</title>
+    <link rel="icon" href="https://fav.farm/🔥" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <ul id="bands">
+        <li>heyy</li>
+    </ul>
+
+    <script>
+        const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+
+        // replacing our articles
+        function trimband(bandName)
+        {
+            return bandName.replace(/^(a |the |an )/i, '');  //  Returning string without the articles
+            
+        } 
+
+        // Sorting method on bands Array , 
+        const sortedBands = bands.sort(function(a,b)
+        {
+            
+            // if a > b then it will come first
+            if(trimband(a) > trimband(b)) // a and b are string 
+            {
+                return 1; // So it will return 1 therefore coming first
+            }
+
+            else
+            {
+                return -1; // it will come after    
+            }
+            
+        })
+ 
+        console.log(sortedBands); // it will return sorted array
+
+        document.getElementById("bands").innerHTML = sortedBands.map(band => `<li>${band}</li>`).join(''); // Displaying our SortedArray to our id Bands
+        
+
+    </script>
+</body>
+</html> 
